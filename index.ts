@@ -7,11 +7,16 @@ import dotenv from 'dotenv';
 import passport from 'passport';
 import hpp from 'hpp';
 import helmet from 'helmet';
+import { sequelize } from './models';
 
 dotenv.config();
 const prod = process.env.NODE_ENV === 'production';
 const app = express();
 app.set('port', prod ? process.env.PORT : 3065);
+sequelize
+  .sync({ force: false }) // true면 서버킬때 태이블 초기화
+  .then(() => console.log('db연결 성공'))
+  .catch((e: Error) => console.error(e));
 
 if (prod) {
   app.use(hpp());
