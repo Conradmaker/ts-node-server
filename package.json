@@ -16,6 +16,8 @@
     "@types/express-session": "^1.17.3",
     "@types/hpp": "^0.2.1",
     "@types/morgan": "^1.9.2",
+    "@types/multer": "^1.4.5",
+    "@types/multer-s3": "^2.7.9",
     "@types/node": "^14.14.22",
     "@types/passport": "^1.0.5",
     "@types/passport-local": "^1.0.33",
@@ -28,6 +30,7 @@
     "ts-node": "^9.1.1"
   },
   "dependencies": {
+    "aws-sdk": "^2.834.0",
     "bcrypt": "^5.0.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -38,6 +41,8 @@
     "helmet": "^4.4.1",
     "hpp": "^0.2.3",
     "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",

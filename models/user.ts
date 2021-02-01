@@ -13,7 +13,7 @@ class User extends Model {
   public readonly id!: number;
   public nickname!: string;
   public userId!: string;
-  public password?: string;
+  public password!: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
 

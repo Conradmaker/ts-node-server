@@ -1,16 +1,16 @@
 import express from 'express';
 import bcrypt from 'bcrypt';
 import { isLoggedIn, isNotLoggedIn } from './middleware';
-import User from '../../models/user';
+import User from '../models/user';
 import passport from 'passport';
-import Post from '../../models/post';
-import Image from '../../models/image';
+import Post from '../models/post';
+import Image from '../models/image';
 
 const router = express.Router();
 
 router.get('/', isLoggedIn, (req, res) => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const user = req.user!.toJSON() as User;
+  const user = req.user!.toJSON() as Partial<User>;
   delete user.password;
   return res.json(user);
 });
@@ -214,3 +214,4 @@ router.patch('/nickname', isLoggedIn, async (req, res, next) => {
     next(e);
   }
 });
+export default router;

@@ -1,5 +1,12 @@
-import { DataTypes, Model } from 'sequelize/types';
+import {
+  BelongsToManyAddAssociationMixin,
+  BelongsToManyAddAssociationsMixin,
+  DataTypes,
+  Model,
+} from 'sequelize/types';
 import { dbType } from '.';
+import Hashtag from './hashtag';
+import Image from './image';
 import sequelize from './sequelize';
 
 class Post extends Model {
@@ -7,6 +14,10 @@ class Post extends Model {
   public content!: string;
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
+
+  public addHashtags!: BelongsToManyAddAssociationsMixin<Hashtag, number>;
+  public addImages!: BelongsToManyAddAssociationsMixin<Image, number>;
+  public addImage!: BelongsToManyAddAssociationMixin<Image, number>;
 }
 
 Post.init(

@@ -8,6 +8,7 @@ import passport from 'passport';
 import hpp from 'hpp';
 import helmet from 'helmet';
 import { sequelize } from './models';
+import router from './routes';
 
 dotenv.config();
 const prod = process.env.NODE_ENV === 'production';
@@ -46,7 +47,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use('/api', router);
 app.get('/', (req, res) => {
   res.send('react node');
 });
